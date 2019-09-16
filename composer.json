@@ -1,0 +1,9 @@
+{
+  "require": {
+    "gumlet/php-image-resize": "1.9.*"
+  },
+  "require-dev": {
+    "eaglewu/swoole-ide-helper": "dev-master",
+    "phpunit/phpunit": "^8.3"
+  }
+}
