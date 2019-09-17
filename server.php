@@ -1,8 +1,8 @@
 <?php
 include 'vendor/autoload.php';
 // Simple HTTP static file server using Swoole
-$host = $argv[1] ?? '127.0.0.1';
-$port = $argv[2] ?? 9501;
+$host = $argv[1] ?? '0.0.0.0';
+$port = $argv[2] ?? 80;
 $http = new swoole_http_server($host, $port);
 // The usage of enable_static_handler seems to produce errors
 // $http->set([
@@ -19,6 +19,9 @@ $static = [
     'jpeg' => 'image/jpg',
     'svg' => 'image/svg+xml'
 ];
+$http->set([
+    'worker_num' => 4,
+]);
 $http->on("request", function (Swoole\Http\Request $request, Swoole\Http\Response $response) use ($static) {
     $request_uri = $request->server['request_uri'];
     $uris = explode('@', $request_uri);

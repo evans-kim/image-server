@@ -1,5 +1,8 @@
 # Swoole On-demand Image Proxy Server
 
+## Benefit
+Save traffic cost using LightSail VPS.
+
 ## How to use
     https://[domain]/[image_path]@[options]
     
